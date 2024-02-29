@@ -6,8 +6,6 @@ namespace Yiisoft\RequestProvider;
 
 use LogicException;
 use Throwable;
-// use Yiisoft\Input\Http\Request\Catcher\RequestCatcherMiddleware;
-// use Yiisoft\Input\Http\Request\Catcher\RequestCatcherParametersResolver;s
 
 /**
  * Thrown when request isn't set by either {@see RequestCatcherMiddleware} or {@see RequestCatcherParametersResolver}.
