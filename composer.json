@@ -1,7 +1,7 @@
 {
     "name": "yiisoft/request-provider",
     "type": "library",
-    "description": "Request provider",
+    "description": "PSR-7 request provider",
     "keywords": [
         "yii3",
         "request",
