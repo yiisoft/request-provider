@@ -8,7 +8,7 @@ use LogicException;
 use Throwable;
 
 /**
- * Thrown when request isn't set by either {@see RequestCatcherMiddleware} or {@see RequestCatcherParametersResolver}.
+ * Thrown when request isn't set before.
  */
 final class RequestNotSetException extends LogicException
 {
