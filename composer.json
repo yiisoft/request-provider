@@ -4,6 +4,7 @@
     "description": "PSR-7 request provider",
     "keywords": [
         "yii3",
+        "psr",
         "request",
         "http",
         "provider"
