@@ -2,20 +2,20 @@
     <a href="https://github.com/yiisoft" target="_blank">
         <img src="https://yiisoft.github.io/docs/images/yii_logo.svg" height="100px">
     </a>
-    <h1 align="center">Yii _____</h1>
+    <h1 align="center">Yii request provider</h1>
     <br>
 </p>
 
-[![Latest Stable Version](https://poser.pugx.org/yiisoft/_____/v/stable.png)](https://packagist.org/packages/yiisoft/_____)
-[![Total Downloads](https://poser.pugx.org/yiisoft/_____/downloads.png)](https://packagist.org/packages/yiisoft/_____)
-[![Build status](https://github.com/yiisoft/_____/workflows/build/badge.svg)](https://github.com/yiisoft/_____/actions?query=workflow%3Abuild)
-[![Code Coverage](https://codecov.io/gh/yiisoft/_____/branch/master/graph/badge.svg)](https://codecov.io/gh/yiisoft/_____)
-[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fyiisoft%2F_____%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/yiisoft/_____/master)
-[![static analysis](https://github.com/yiisoft/_____/workflows/static%20analysis/badge.svg)](https://github.com/yiisoft/_____/actions?query=workflow%3A%22static+analysis%22)
-[![type-coverage](https://shepherd.dev/github/yiisoft/_____/coverage.svg)](https://shepherd.dev/github/yiisoft/_____)
-[![psalm-level](https://shepherd.dev/github/yiisoft/_____/level.svg)](https://shepherd.dev/github/yiisoft/_____)
+[![Latest Stable Version](https://poser.pugx.org/yiisoft/request-provider/v/stable.png)](https://packagist.org/packages/yiisoft/request-provider)
+[![Total Downloads](https://poser.pugx.org/yiisoft/request-provider/downloads.png)](https://packagist.org/packages/yiisoft/request-provider)
+[![Build status](https://github.com/yiisoft/request-provider/workflows/build/badge.svg)](https://github.com/yiisoft/request-provider/actions?query=workflow%3Abuild)
+[![Code Coverage](https://codecov.io/gh/yiisoft/request-provider/branch/master/graph/badge.svg)](https://codecov.io/gh/yiisoft/request-provider)
+[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fyiisoft%2Frequest-provider%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/yiisoft/request-provider/master)
+[![static analysis](https://github.com/yiisoft/request-provider/workflows/static%20analysis/badge.svg)](https://github.com/yiisoft/request-provider/actions?query=workflow%3A%22static+analysis%22)
+[![type-coverage](https://shepherd.dev/github/yiisoft/request-provider/coverage.svg)](https://shepherd.dev/github/yiisoft/request-provider)
+[![psalm-level](https://shepherd.dev/github/yiisoft/request-provider/level.svg)](https://shepherd.dev/github/yiisoft/request-provider)
 
-The package ...
+The package provides current request as a dependency.
 
 ## Requirements
 
@@ -26,10 +26,33 @@ The package ...
 The package could be installed with composer:
 
 ```shell
-composer require yiisoft/_____
+composer require yiisoft/request-provider
 ```
 
+Then add `Yiisoft\RequestProvider\RequestCatcherMiddleware` to your application middleware stack.
+
 ## General usage
+
+When you need current request, get `RequestProviderInterface` as dependency and obtain the request from it: 
+
+```php
+use \Yiisoft\RequestProvider\RequestProviderInterface;
+
+final class MyService
+{
+    public function __construct(
+        private readonly RequestProviderInterface $requestProvider
+    )
+    {    
+    }
+    
+    public function doIt()
+    {
+        $request = $this->requestProvider->get();
+        // ...
+    }
+}
+```
 
 ## Testing
 
@@ -74,7 +97,7 @@ Use [ComposerRequireChecker](https://github.com/maglnet/ComposerRequireChecker) 
 
 ## License
 
-The Yii _____ is free software. It is released under the terms of the BSD License.
+The Yii request-provider is free software. It is released under the terms of the BSD License.
 Please see [`LICENSE`](./LICENSE.md) for more information.
 
 Maintained by [Yii Software](https://www.yiiframework.com/).

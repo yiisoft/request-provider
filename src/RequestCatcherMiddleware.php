@@ -19,7 +19,7 @@ final class RequestCatcherMiddleware implements MiddlewareInterface
      * @param RequestProviderInterface $provider The request provider.
      */
     public function __construct(
-        private RequestProviderInterface $provider,
+        private readonly RequestProviderInterface $provider,
     ) {
     }
 
