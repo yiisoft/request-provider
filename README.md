@@ -2,7 +2,7 @@
     <a href="https://github.com/yiisoft" target="_blank">
         <img src="https://yiisoft.github.io/docs/images/yii_logo.svg" height="100px">
     </a>
-    <h1 align="center">Yii request provider</h1>
+    <h1 align="center">Yii Request Provider</h1>
     <br>
 </p>
 
@@ -15,7 +15,7 @@
 [![type-coverage](https://shepherd.dev/github/yiisoft/request-provider/coverage.svg)](https://shepherd.dev/github/yiisoft/request-provider)
 [![psalm-level](https://shepherd.dev/github/yiisoft/request-provider/level.svg)](https://shepherd.dev/github/yiisoft/request-provider)
 
-The package provides current request as a dependency.
+The package provides current PSR-7 request as a dependency.
 
 ## Requirements
 
