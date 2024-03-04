@@ -29,14 +29,14 @@ The package could be installed with composer:
 composer require yiisoft/request-provider
 ```
 
-Then add `Yiisoft\RequestProvider\RequestCatcherMiddleware` to your application middleware stack.
-
 ## General usage
 
-When you need current request, get `RequestProviderInterface` as dependency and obtain the request from it: 
+First, add `Yiisoft\RequestProvider\RequestCatcherMiddleware` to your application middleware stack. 
+
+Then, when you need current request, get `RequestProviderInterface` as dependency and obtain the request from it: 
 
 ```php
-use \Yiisoft\RequestProvider\RequestProviderInterface;
+use Yiisoft\RequestProvider\RequestProviderInterface;
 
 final class MyService
 {
