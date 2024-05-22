@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://github.com/yiisoft" target="_blank">
-        <img src="https://yiisoft.github.io/docs/images/yii_logo.svg" height="100px">
+        <img src="https://yiisoft.github.io/docs/images/yii_logo.svg" height="100px" alt="Yii">
     </a>
     <h1 align="center">Yii Request Provider</h1>
     <br>
@@ -31,9 +31,9 @@ composer require yiisoft/request-provider
 
 ## General usage
 
-First, add `Yiisoft\RequestProvider\RequestCatcherMiddleware` to your application middleware stack. 
+First, add `Yiisoft\RequestProvider\RequestCatcherMiddleware` to your application middleware stack.
 
-Then, when you need current request, get `RequestProviderInterface` as dependency and obtain the request from it: 
+Then, when you need current request, get `RequestProviderInterface` as dependency and obtain the request from it:
 
 ```php
 use Yiisoft\RequestProvider\RequestProviderInterface;
