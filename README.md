@@ -6,9 +6,9 @@
     <br>
 </p>
 
-[![Latest Stable Version](https://poser.pugx.org/yiisoft/request-provider/v/stable.png)](https://packagist.org/packages/yiisoft/request-provider)
-[![Total Downloads](https://poser.pugx.org/yiisoft/request-provider/downloads.png)](https://packagist.org/packages/yiisoft/request-provider)
-[![Build status](https://github.com/yiisoft/request-provider/workflows/build/badge.svg)](https://github.com/yiisoft/request-provider/actions?query=workflow%3Abuild)
+[![Latest Stable Version](https://poser.pugx.org/yiisoft/request-provider/v)](https://packagist.org/packages/yiisoft/request-provider)
+[![Total Downloads](https://poser.pugx.org/yiisoft/request-provider/downloads)](https://packagist.org/packages/yiisoft/request-provider)
+[![Build status](https://github.com/yiisoft/request-provider/actions/workflows/build.yml/badge.svg)](https://github.com/yiisoft/request-provider/actions/workflows/build.yml)
 [![Code Coverage](https://codecov.io/gh/yiisoft/request-provider/branch/master/graph/badge.svg)](https://codecov.io/gh/yiisoft/request-provider)
 [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fyiisoft%2Frequest-provider%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/yiisoft/request-provider/master)
 [![static analysis](https://github.com/yiisoft/request-provider/workflows/static%20analysis/badge.svg)](https://github.com/yiisoft/request-provider/actions?query=workflow%3A%22static+analysis%22)
