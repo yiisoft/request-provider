@@ -59,7 +59,8 @@
             "source-directory": "config"
         },
         "config-plugin": {
-            "di-web": "di-web.php"
+            "di-web": "di-web.php",
+            "events-web": "events-web.php"
         }
     },
     "config": {
