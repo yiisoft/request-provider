@@ -1,8 +1,8 @@
 # Yii Request Provider Change Log
 
-## 1.0.1 under development
+## 1.1.0 under development
 
-- no changes in this release.
+- Enh #10: Add event listener to keep Request always available (@xepozz)
 
 ## 1.0.0 March 02, 2024
 
