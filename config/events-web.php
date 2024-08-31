@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use Psr\Container\ContainerInterface;
 use Yiisoft\Middleware\Dispatcher\Event\BeforeMiddleware;
-use Yiisoft\RequestProvider\RequestProvider;
 use Yiisoft\RequestProvider\RequestProviderInterface;
 
 /** @var array $params */
