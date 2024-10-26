@@ -23,7 +23,7 @@ final class RequestCookiesTest extends TestCase
         $this->assertSame('value', $requestCoockies->get('test'));
     }
 
-    public function testRequestCookiesHas():void
+    public function testRequestCookiesHas(): void
     {
         $requestCoockies = $this->getRequestCookies();
 
