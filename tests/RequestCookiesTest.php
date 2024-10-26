@@ -15,7 +15,6 @@ use function dirname;
 
 final class RequestCookiesTest extends TestCase
 {
-
     public function testRequestCookiesGet(): void
     {
         $requestCoockies = $this->getRequestCookies();
