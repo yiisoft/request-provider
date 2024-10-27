@@ -13,32 +13,30 @@ final class RequestCookiesTest extends TestCase
 {
     public function testGet(): void
     {
-        $requestCoockie = $this->getRequestCookies();
+        $requestCookies = $this->createRequestCookies(['test' => 'value']);
 
-        $this->assertSame('value', $requestCoockie->get('test'));
+        $this->assertSame('value', $requestCookies->get('test'));
     }
 
     public function testHas(): void
     {
-        $requestCoockie = $this->getRequestCookies();
+        $requestCookies = $this->createRequestCookies(['test' => 'value']);
 
-        $this->assertTrue($requestCoockie->has('test'));
-
-        $this->assertFalse($requestCoockie->has('value'));
+        $this->assertTrue($requestCookies->has('test'));
+        $this->assertFalse($requestCookies->has('non-exist'));
     }
 
-    private function getRequestCookies(): RequestCookies
+    private function createRequestCookies(array $cookies = []): RequestCookies
     {
         /** @var ServerRequestInterface $serverRequestMock */
         $serverRequestMock = $this->createMock(ServerRequestInterface::class);
-        $serverRequestMock->method('getCookieParams')->willReturn([
-            'test' => 'value',
-        ]);
+        $serverRequestMock
+            ->method('getCookieParams')
+            ->willReturn($cookies);
 
         /** @var RequestProviderInterface $requestProvider */
         $requestProvider = $this->createMock(RequestProviderInterface::class);
         $requestProvider->method('get')->willReturn($serverRequestMock);
-
 
         return new RequestCookies($requestProvider);
     }
