@@ -26,6 +26,6 @@ final class RequestCookies
 
     public function has(string $name): bool
     {
-        return isset($this->cookies[$name]);
+        return array_key_exists($name, $this->cookies);
     }
 }

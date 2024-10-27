@@ -56,15 +56,17 @@ final class MyService
 
 ### Request cookies collection
 
-You can work with cookie request from any place in you project. Add in config you app in middleware block
+You can work with cookies like the following:
 
 ```php
-class MyClass {
+class MyClass
+{
   public function __construct(
     private \Yiisoft\RequestProvider\RequestCookies $cookies
   ) {}
   
-  public function go(): void {
+  public function go(): void
+  {
     $this->cookies->has(...);
     $this->cookies->get(...)
   }

@@ -6,54 +6,40 @@ namespace Yiisoft\RequestProvider\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;
-use Yiisoft\Di\Container;
-use Yiisoft\Di\ContainerConfig;
 use Yiisoft\RequestProvider\RequestCookies;
 use Yiisoft\RequestProvider\RequestProviderInterface;
 
-use function dirname;
-
 final class RequestCookiesTest extends TestCase
 {
-    public function testRequestCookiesGet(): void
+    public function testGet(): void
     {
-        $requestCoockies = $this->getRequestCookies();
+        $requestCoockie = $this->getRequestCookies();
 
-        $this->assertSame('value', $requestCoockies->get('test'));
+        $this->assertSame('value', $requestCoockie->get('test'));
     }
 
-    public function testRequestCookiesHas(): void
+    public function testHas(): void
     {
-        $requestCoockies = $this->getRequestCookies();
+        $requestCoockie = $this->getRequestCookies();
 
-        $this->assertTrue($requestCoockies->has('test'));
+        $this->assertTrue($requestCoockie->has('test'));
 
-        $this->assertFalse($requestCoockies->has('value'));
+        $this->assertFalse($requestCoockie->has('value'));
     }
 
     private function getRequestCookies(): RequestCookies
     {
-        $container = $this->createContainer();
-        $requestProvider = $container->get(RequestProviderInterface::class);
+        /** @var ServerRequestInterface $serverRequestMock */
         $serverRequestMock = $this->createMock(ServerRequestInterface::class);
         $serverRequestMock->method('getCookieParams')->willReturn([
             'test' => 'value',
         ]);
-        $requestProvider->set($serverRequestMock);
 
-        /** @var RequestCookies $requestCoockies */
-        return $container->get(RequestCookies::class);
-    }
+        /** @var RequestProviderInterface $requestProvider */
+        $requestProvider = $this->createMock(RequestProviderInterface::class);
+        $requestProvider->method('get')->willReturn($serverRequestMock);
 
-    private function createContainer(): Container
-    {
-        return new Container(
-            ContainerConfig::create()->withDefinitions($this->getContainerDefinitions())
-        );
-    }
 
-    private function getContainerDefinitions(): array
-    {
-        return require dirname(__DIR__) . '/config/di-web.php';
+        return new RequestCookies($requestProvider);
     }
 }
