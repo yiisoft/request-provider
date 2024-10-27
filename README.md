@@ -67,8 +67,8 @@ class MyClass
   
   public function go(): void
   {
-    $this->cookies->has(...);
-    $this->cookies->get(...)
+    $this->cookies->has('foo');
+    $this->cookies->get('bar');
   }
 }
 ```
