@@ -54,6 +54,25 @@ final class MyService
 }
 ```
 
+### Request cookies collection
+
+You can work with cookies like the following:
+
+```php
+class MyClass
+{
+  public function __construct(
+    private \Yiisoft\RequestProvider\RequestCookies $cookies
+  ) {}
+  
+  public function go(): void
+  {
+    $this->cookies->has('foo');
+    $this->cookies->get('bar');
+  }
+}
+```
+
 ## Documentation
 
 - [Internals](docs/internals.md)
