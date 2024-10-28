@@ -1,5 +1,9 @@
 # Yii Request Provider Change Log
 
+## 1.1.1 under development
+
+- no changes in this release.
+
 ## 1.1.0 October 28, 2024
 
 - New #11: Add `RequestCookies` class that provides convenient access to request cookies (@hacan359)
