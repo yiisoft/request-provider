@@ -16,21 +16,53 @@ final class RequestHeadersTest extends TestCase {
 
     /**
      * @return void
+     * @throws Exception
      */
-    public function testGet(): void {
+    public function testGetHeaderLine(): void {
         $requestHeaders = $this->createRequestHeaders([self::HEADER_NAME => [self::HEADER_VALUE]]);
 
-        $this->assertSame(self::HEADER_VALUE, $requestHeaders->get(self::HEADER_NAME));
+        $this->assertSame(self::HEADER_VALUE, $requestHeaders->getHeaderLine(self::HEADER_NAME));
     }
 
     /**
      * @return void
+     * @throws Exception
      */
-    public function testHas(): void {
+    public function testGetHeader(): void {
         $requestHeaders = $this->createRequestHeaders([self::HEADER_NAME => [self::HEADER_VALUE]]);
 
-        $this->assertTrue($requestHeaders->has(self::HEADER_NAME));
-        $this->assertFalse($requestHeaders->has('non-exist'));
+        $this->assertSame([self::HEADER_VALUE], $requestHeaders->getHeader(self::HEADER_NAME));
+    }
+
+    /**
+     * @return void
+     * @throws Exception
+     */
+    public function testGetHeaders(): void {
+        $requestHeaders = $this->createRequestHeaders([self::HEADER_NAME => [self::HEADER_VALUE]]);
+
+        $this->assertSame([self::HEADER_NAME => [self::HEADER_VALUE]], $requestHeaders->getHeaders());
+    }
+
+    /**
+     * @return void
+     * @throws Exception
+     */
+    public function testGetFirstHeader(): void {
+        $requestHeaders = $this->createRequestHeaders([self::HEADER_NAME => [self::HEADER_VALUE]]);
+
+        $this->assertSame([self::HEADER_NAME => self::HEADER_VALUE], $requestHeaders->getFirstHeaders());
+    }
+
+    /**
+     * @return void
+     * @throws Exception
+     */
+    public function testHasHeader(): void {
+        $requestHeaders = $this->createRequestHeaders([self::HEADER_NAME => [self::HEADER_VALUE]]);
+
+        $this->assertTrue($requestHeaders->hasHeader(self::HEADER_NAME));
+        $this->assertFalse($requestHeaders->hasHeader('non-exist'));
     }
 
     /**
@@ -44,6 +76,14 @@ final class RequestHeadersTest extends TestCase {
         $serverRequestMock
             ->method('getHeaderLine')
             ->willReturnCallback(fn(string $name): string => $headers[$name][0] ?? null);
+
+        $serverRequestMock
+            ->method('getHeader')
+            ->willReturnCallback(fn(string $name): array => $headers[$name] ?? []);
+
+        $serverRequestMock
+            ->method('getHeaders')
+            ->willReturnCallback(fn(): array => $headers);
 
         $serverRequestMock
             ->method('hasHeader')
