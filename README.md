@@ -73,6 +73,28 @@ class MyClass
 }
 ```
 
+### Request headers collection
+
+You can work with headers as follows:
+
+```php
+class MyClass
+{
+  public function __construct(
+    private \Yiisoft\RequestProvider\RequestHeaders $headers
+  ) {}
+  
+  public function go(): void
+  {
+    $this->headers->hasHeader('X-Foo');
+    $this->headers->getHeader('X-Foo');
+    $this->headers->getHeaderLine('X-Foo');
+    $this->headers->getHeaders();
+    $this->headers->getFirstHeaders('X-Foo');
+  }
+}
+```
+
 ## Documentation
 
 - [Internals](docs/internals.md)

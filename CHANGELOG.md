@@ -1,8 +1,11 @@
 # Yii Request Provider Change Log
 
-## 1.1.1 under development
-
+## 1.1.2 under development
 - no changes in this release.
+
+## 1.1.1 December 13, 2024
+
+- New #12: Add `RequestHeaders` clas that provides convenient access to request headers (@uzdevid)
 
 ## 1.1.0 October 28, 2024
 
