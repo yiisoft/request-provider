@@ -40,7 +40,7 @@ final class RequestHeaders {
      * @return array
      */
     public function getFirstHeaders(): array {
-        return array_map(static fn($lines) => $lines[0], $this->requestProvider->get()->getHeaders());
+        return array_map(static fn(array $lines) => $lines[0], $this->getHeaders());
     }
 
     /**
