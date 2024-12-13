@@ -26,7 +26,8 @@ final class RequestHeaders {
      * @return string|null The header value as a string, or null if the header is not present.
      */
     public function getHeaderLine(string $name, string|null $default = null): string|null {
-        return $this->requestProvider->get()->hasHeader($name) ? $this->requestProvider->get()->getHeaderLine($name) : $default;
+        $request = $this->requestProvider->get();
+        return $request->hasHeader($name) ? $request->getHeaderLine($name) : $default;
     }
 
     /**
