@@ -25,7 +25,7 @@ final class RequestHeaders {
      * @param string $name The name of the header to retrieve.
      * @return string|null The header value as a string, or null if the header is not present.
      */
-    public function getHeaderLine(string $name, string $default = null): string|null {
+    public function getHeaderLine(string $name, string|null $default = null): string|null {
         return $this->requestProvider->get()->hasHeader($name) ? $this->requestProvider->get()->getHeaderLine($name) : $default;
     }
 
@@ -33,7 +33,7 @@ final class RequestHeaders {
      * Retrieves the value(s) of a specific header as an array.
      *
      * @param string $name The name of the header to retrieve.
-     * @return array An array of header values, or an empty array if the header is not present.
+     * @return string[] An array of header values, or an empty array if the header is not present.
      */
     public function getHeader(string $name): array {
         return $this->requestProvider->get()->getHeader($name);
