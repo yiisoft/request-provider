@@ -18,7 +18,6 @@ final class RequestHeaders {
      * @return string|null
      */
     public function getHeaderLine(string $name, string $default = null): string|null {
-        return $this->requestProvider->get()->hasHeader($name) ? $this->requestProvider->get()->getHeaderLine($name) : null;
         return $this->requestProvider->get()->hasHeader($name) ? $this->requestProvider->get()->getHeaderLine($name) : $default;
     }
 
