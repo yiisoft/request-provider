@@ -7,10 +7,10 @@ namespace Yiisoft\RequestProvider\Tests;
 use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;
-use Yiisoft\RequestProvider\RequestHeaders;
+use Yiisoft\RequestProvider\RequestHeaderProvider;
 use Yiisoft\RequestProvider\RequestProviderInterface;
 
-final class RequestHeadersTest extends TestCase {
+final class RequestHeaderProviderTest extends TestCase {
     private const HEADER_NAME = 'test';
     private const HEADER_VALUE = 'value';
 
@@ -67,10 +67,10 @@ final class RequestHeadersTest extends TestCase {
 
     /**
      * @param array $headers
-     * @return RequestHeaders
+     * @return RequestHeaderProvider
      * @throws Exception
      */
-    private function createRequestHeaders(array $headers = []): RequestHeaders {
+    private function createRequestHeaders(array $headers = []): RequestHeaderProvider {
         /** @var ServerRequestInterface $serverRequestMock */
         $serverRequestMock = $this->createMock(ServerRequestInterface::class);
         $serverRequestMock
@@ -93,6 +93,6 @@ final class RequestHeadersTest extends TestCase {
         $requestProvider = $this->createMock(RequestProviderInterface::class);
         $requestProvider->method('get')->willReturn($serverRequestMock);
 
-        return new RequestHeaders($requestProvider);
+        return new RequestHeaderProvider($requestProvider);
     }
 }

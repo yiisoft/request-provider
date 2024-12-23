@@ -81,7 +81,7 @@ You can work with headers as follows:
 class MyClass
 {
   public function __construct(
-    private \Yiisoft\RequestProvider\RequestHeaders $headers
+    private \Yiisoft\RequestProvider\RequestHeaderProvider $headers
   ) {}
   
   public function go(): void
