@@ -2,7 +2,7 @@
 
 ## 1.1.1 under development
 
-- no changes in this release.
+- Enh #17: Get request from provider into `RequestCookies` every time `get()` and `has()` methods are called (@vjik)
 
 ## 1.1.0 October 28, 2024
 
