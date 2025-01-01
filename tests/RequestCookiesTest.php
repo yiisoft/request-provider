@@ -8,7 +8,6 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;
 use Yiisoft\RequestProvider\RequestCookies;
 use Yiisoft\RequestProvider\RequestProvider;
-use Yiisoft\RequestProvider\RequestProviderInterface;
 
 final class RequestCookiesTest extends TestCase
 {
