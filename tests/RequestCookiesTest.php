@@ -7,7 +7,7 @@ namespace Yiisoft\RequestProvider\Tests;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;
 use Yiisoft\RequestProvider\RequestCookies;
-use Yiisoft\RequestProvider\RequestProviderInterface;
+use Yiisoft\RequestProvider\RequestProvider;
 
 final class RequestCookiesTest extends TestCase
 {
@@ -26,18 +26,43 @@ final class RequestCookiesTest extends TestCase
         $this->assertFalse($requestCookies->has('non-exist'));
     }
 
+    public function testWithChangesInRequest(): void
+    {
+        $requestA = $this->createRequest(['test' => 'a']);
+        $requestB = $this->createRequest(['test' => 'b', 'city' => 'Voronezh']);
+
+        $requestProvider = new RequestProvider();
+        $requestProvider->set($requestA);
+
+        $requestCookies = new RequestCookies($requestProvider);
+
+        $this->assertSame('a', $requestCookies->get('test'));
+        $this->assertFalse($requestCookies->has('city'));
+
+        $requestProvider->set($requestB);
+
+        $this->assertSame('b', $requestCookies->get('test'));
+        $this->assertTrue($requestCookies->has('city'));
+    }
+
     private function createRequestCookies(array $cookies = []): RequestCookies
     {
-        /** @var ServerRequestInterface $serverRequestMock */
-        $serverRequestMock = $this->createMock(ServerRequestInterface::class);
-        $serverRequestMock
+        $request = $this->createRequest($cookies);
+
+        $requestProvider = new RequestProvider();
+        $requestProvider->set($request);
+
+        return new RequestCookies($requestProvider);
+    }
+
+    private function createRequest(array $cookies = []): ServerRequestInterface
+    {
+        /** @var ServerRequestInterface $request */
+        $request = $this->createMock(ServerRequestInterface::class);
+        $request
             ->method('getCookieParams')
             ->willReturn($cookies);
 
-        /** @var RequestProviderInterface $requestProvider */
-        $requestProvider = $this->createMock(RequestProviderInterface::class);
-        $requestProvider->method('get')->willReturn($serverRequestMock);
-
-        return new RequestCookies($requestProvider);
+        return $request;
     }
 }
