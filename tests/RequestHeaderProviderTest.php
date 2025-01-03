@@ -10,7 +10,8 @@ use Psr\Http\Message\ServerRequestInterface;
 use Yiisoft\RequestProvider\RequestHeaderProvider;
 use Yiisoft\RequestProvider\RequestProviderInterface;
 
-final class RequestHeaderProviderTest extends TestCase {
+final class RequestHeaderProviderTest extends TestCase
+{
     private const HEADER_NAME = 'test';
     private const HEADER_VALUE = 'value';
 
@@ -18,7 +19,8 @@ final class RequestHeaderProviderTest extends TestCase {
      * @return void
      * @throws Exception
      */
-    public function testGetHeaderLine(): void {
+    public function testGetHeaderLine(): void
+    {
         $requestHeaders = $this->createRequestHeaders([self::HEADER_NAME => [self::HEADER_VALUE]]);
 
         $this->assertSame(self::HEADER_VALUE, $requestHeaders->getHeaderLine(self::HEADER_NAME));
@@ -28,7 +30,8 @@ final class RequestHeaderProviderTest extends TestCase {
      * @return void
      * @throws Exception
      */
-    public function testGetHeader(): void {
+    public function testGetHeader(): void
+    {
         $requestHeaders = $this->createRequestHeaders([self::HEADER_NAME => [self::HEADER_VALUE]]);
 
         $this->assertSame([self::HEADER_VALUE], $requestHeaders->getHeader(self::HEADER_NAME));
@@ -38,7 +41,8 @@ final class RequestHeaderProviderTest extends TestCase {
      * @return void
      * @throws Exception
      */
-    public function testGetHeaders(): void {
+    public function testGetHeaders(): void
+    {
         $requestHeaders = $this->createRequestHeaders([self::HEADER_NAME => [self::HEADER_VALUE]]);
 
         $this->assertSame([self::HEADER_NAME => [self::HEADER_VALUE]], $requestHeaders->getHeaders());
@@ -48,7 +52,8 @@ final class RequestHeaderProviderTest extends TestCase {
      * @return void
      * @throws Exception
      */
-    public function testGetFirstHeader(): void {
+    public function testGetFirstHeader(): void
+    {
         $requestHeaders = $this->createRequestHeaders([self::HEADER_NAME => [self::HEADER_VALUE]]);
 
         $this->assertSame([self::HEADER_NAME => self::HEADER_VALUE], $requestHeaders->getFirstHeaders());
@@ -58,7 +63,8 @@ final class RequestHeaderProviderTest extends TestCase {
      * @return void
      * @throws Exception
      */
-    public function testHasHeader(): void {
+    public function testHasHeader(): void
+    {
         $requestHeaders = $this->createRequestHeaders([self::HEADER_NAME => [self::HEADER_VALUE]]);
 
         $this->assertTrue($requestHeaders->hasHeader(self::HEADER_NAME));
@@ -70,7 +76,8 @@ final class RequestHeaderProviderTest extends TestCase {
      * @return RequestHeaderProvider
      * @throws Exception
      */
-    private function createRequestHeaders(array $headers = []): RequestHeaderProvider {
+    private function createRequestHeaders(array $headers = []): RequestHeaderProvider
+    {
         /** @var ServerRequestInterface $serverRequestMock */
         $serverRequestMock = $this->createMock(ServerRequestInterface::class);
         $serverRequestMock
