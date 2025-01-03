@@ -54,7 +54,7 @@ final class MyService
 }
 ```
 
-### Request cookies collection
+### Request cookies provider
 
 You can work with cookies as follows:
 
@@ -62,7 +62,7 @@ You can work with cookies as follows:
 class MyClass
 {
   public function __construct(
-    private \Yiisoft\RequestProvider\RequestCookies $cookies
+    private \Yiisoft\RequestProvider\RequestCookieProvider $cookies
   ) {}
   
   public function go(): void
