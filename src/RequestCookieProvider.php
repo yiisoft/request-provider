@@ -6,10 +6,7 @@ namespace Yiisoft\RequestProvider;
 
 use function array_key_exists;
 
-/**
- * @deprecated Use {@see RequestCookieProvider} instead.
- */
-final class RequestCookies
+final class RequestCookieProvider
 {
     public function __construct(
         private readonly RequestProviderInterface $requestProvider,
