@@ -11,7 +11,7 @@ namespace Yiisoft\RequestProvider;
 final class RequestHeaderProvider
 {
     /**
-     * Initializes the RequestHeaders instance with a request provider.
+     * Initializes the instance with a request provider.
      *
      * @param RequestProviderInterface $requestProvider The request provider to access the request.
      */
