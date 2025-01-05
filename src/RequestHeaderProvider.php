@@ -6,7 +6,7 @@ namespace Yiisoft\RequestProvider;
 
 /**
  * The `RequestHeaderProvider` class provides utility methods for retrieving HTTP headers
- * from a request. It uses a RequestProviderInterface implementation to access the current request.
+ * from a request. It uses a `RequestProviderInterface` implementation to access the current request.
  */
 final class RequestHeaderProvider
 {
