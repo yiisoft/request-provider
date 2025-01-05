@@ -90,7 +90,7 @@ class MyClass
     $this->headers->getHeader('X-Foo');
     $this->headers->getHeaderLine('X-Foo');
     $this->headers->getHeaders();
-    $this->headers->getFirstHeaders('X-Foo');
+    $this->headers->getFirstHeaders();
   }
 }
 ```
