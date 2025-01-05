@@ -35,7 +35,7 @@ final class RequestHeaderProviderTest extends TestCase
         $this->assertSame([self::HEADER_NAME => [self::HEADER_VALUE]], $requestHeaders->getHeaders());
     }
 
-    public function testGetFirstHeader(): void
+    public function testGetFirstHeaders(): void
     {
         $requestHeaders = $this->createRequestHeaders([self::HEADER_NAME => [self::HEADER_VALUE]]);
 
