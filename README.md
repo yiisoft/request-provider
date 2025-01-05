@@ -73,7 +73,7 @@ class MyClass
 }
 ```
 
-### Request headers collection
+### Request headers provider
 
 You can work with headers as follows:
 
