@@ -26,7 +26,7 @@ final class RequestHeaderProvider
      * @param string $name The name of the header to retrieve.
      * @return string|null The header value as a string, or null if the header is not present.
      */
-    public function getHeaderLine(string $name, string|null $default = null): string|null
+    public function getLine(string $name, string|null $default = null): string|null
     {
         $request = $this->requestProvider->get();
         return $request->hasHeader($name) ? $request->getHeaderLine($name) : $default;
@@ -38,7 +38,7 @@ final class RequestHeaderProvider
      * @param string $name The name of the header to retrieve.
      * @return string[] An array of header values, or an empty array if the header is not present.
      */
-    public function getHeader(string $name): array
+    public function get(string $name): array
     {
         return $this->requestProvider->get()->getHeader($name);
     }
@@ -49,7 +49,7 @@ final class RequestHeaderProvider
      *
      * @return string[][] An associative array of all headers.
      */
-    public function getHeaders(): array
+    public function getAll(): array
     {
         return $this->requestProvider->get()->getHeaders();
     }
@@ -62,7 +62,7 @@ final class RequestHeaderProvider
      */
     public function getFirstHeaders(): array
     {
-        return array_map(static fn(array $lines) => $lines[0], $this->getHeaders());
+        return array_map(static fn(array $lines) => $lines[0], $this->getAll());
     }
 
     /**
@@ -71,7 +71,7 @@ final class RequestHeaderProvider
      * @param string $name The name of the header to check.
      * @return bool True if the header is present, false otherwise.
      */
-    public function hasHeader(string $name): bool
+    public function has(string $name): bool
     {
         return $this->requestProvider->get()->hasHeader($name);
     }

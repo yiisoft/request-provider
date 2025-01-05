@@ -86,10 +86,10 @@ class MyClass
   
   public function go(): void
   {
-    $this->headers->hasHeader('X-Foo');
-    $this->headers->getHeader('X-Foo');
-    $this->headers->getHeaderLine('X-Foo');
-    $this->headers->getHeaders();
+    $this->headers->has('X-Foo');
+    $this->headers->get('X-Foo');
+    $this->headers->getLine('X-Foo');
+    $this->headers->getAll();
     $this->headers->getFirstHeaders();
   }
 }

@@ -9,30 +9,32 @@ use Psr\Http\Message\ServerRequestInterface;
 use Yiisoft\RequestProvider\RequestHeaderProvider;
 use Yiisoft\RequestProvider\RequestProviderInterface;
 
+use function array_key_exists;
+
 final class RequestHeaderProviderTest extends TestCase
 {
     private const HEADER_NAME = 'test';
     private const HEADER_VALUE = 'value';
 
-    public function testGetHeaderLine(): void
+    public function testGetLine(): void
     {
         $requestHeaders = $this->createRequestHeaders([self::HEADER_NAME => [self::HEADER_VALUE]]);
 
-        $this->assertSame(self::HEADER_VALUE, $requestHeaders->getHeaderLine(self::HEADER_NAME));
+        $this->assertSame(self::HEADER_VALUE, $requestHeaders->getLine(self::HEADER_NAME));
     }
 
-    public function testGetHeader(): void
+    public function testGet(): void
     {
         $requestHeaders = $this->createRequestHeaders([self::HEADER_NAME => [self::HEADER_VALUE]]);
 
-        $this->assertSame([self::HEADER_VALUE], $requestHeaders->getHeader(self::HEADER_NAME));
+        $this->assertSame([self::HEADER_VALUE], $requestHeaders->get(self::HEADER_NAME));
     }
 
-    public function testGetHeaders(): void
+    public function testGetAll(): void
     {
         $requestHeaders = $this->createRequestHeaders([self::HEADER_NAME => [self::HEADER_VALUE]]);
 
-        $this->assertSame([self::HEADER_NAME => [self::HEADER_VALUE]], $requestHeaders->getHeaders());
+        $this->assertSame([self::HEADER_NAME => [self::HEADER_VALUE]], $requestHeaders->getAll());
     }
 
     public function testGetFirstHeaders(): void
@@ -42,12 +44,12 @@ final class RequestHeaderProviderTest extends TestCase
         $this->assertSame([self::HEADER_NAME => self::HEADER_VALUE], $requestHeaders->getFirstHeaders());
     }
 
-    public function testHasHeader(): void
+    public function testHas(): void
     {
         $requestHeaders = $this->createRequestHeaders([self::HEADER_NAME => [self::HEADER_VALUE]]);
 
-        $this->assertTrue($requestHeaders->hasHeader(self::HEADER_NAME));
-        $this->assertFalse($requestHeaders->hasHeader('non-exist'));
+        $this->assertTrue($requestHeaders->has(self::HEADER_NAME));
+        $this->assertFalse($requestHeaders->has('non-exist'));
     }
 
     private function createRequestHeaders(array $headers = []): RequestHeaderProvider
