@@ -24,7 +24,7 @@ final class RequestHeaderProvider
      * Retrieves the value of a specific header as a string. If the header does not exist, returns default value.
      *
      * @param string $name The name of the header to retrieve.
-     * @return string|null The header value as a string, or null if the header is not present.
+     * @return string|null The header value as a string, or default value if the header is not present.
      */
     public function getLine(string $name, string|null $default = null): string|null
     {
