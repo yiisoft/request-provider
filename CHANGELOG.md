@@ -1,10 +1,10 @@
 # Yii Request Provider Change Log
 
-## 1.1.1 under development
+## 1.2.0 January 08, 2025
 
 - New #12: Add `RequestHeaderProvider` class that provides convenient access to request headers (@uzdevid)
-- Enh #17: Get request from provider into `RequestCookies` every time `get()` and `has()` methods are called (@vjik)
 - Chg #18: Add `RequestCookieProvider` instead of `RequestCookies`, which is marked as deprecated (@vjik)
+- Enh #17: Get request from provider into `RequestCookies` every time `get()` and `has()` methods are called (@vjik)
 
 ## 1.1.0 October 28, 2024
 
