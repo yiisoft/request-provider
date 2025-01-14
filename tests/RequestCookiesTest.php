@@ -6,24 +6,27 @@ namespace Yiisoft\RequestProvider\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;
-use Yiisoft\RequestProvider\RequestCookies;
 use Yiisoft\RequestProvider\RequestProvider;
 
 final class RequestCookiesTest extends TestCase
 {
     public function testGet(): void
     {
-        $requestCookies = $this->createRequestCookies(['test' => 'value']);
+        $cookies = ['test' => 'value'];
+        $request = $this->createRequestProvider($cookies)->get();
+        $cookiesFromRequest = $request->getCookieParams();
 
-        $this->assertSame('value', $requestCookies->get('test'));
+        $this->assertSame($cookies, $cookiesFromRequest);
     }
 
     public function testHas(): void
     {
-        $requestCookies = $this->createRequestCookies(['test' => 'value']);
+        $cookies = ['test' => 'value'];
+        $request = $this->createRequestProvider($cookies)->get();
+        $cookiesFromRequest = $request->getCookieParams();
 
-        $this->assertTrue($requestCookies->has('test'));
-        $this->assertFalse($requestCookies->has('non-exist'));
+        $this->assertArrayHasKey('test', $cookiesFromRequest);
+        $this->assertArrayNotHasKey('non-exist', $cookiesFromRequest);
     }
 
     public function testWithChangesInRequest(): void
@@ -34,25 +37,26 @@ final class RequestCookiesTest extends TestCase
         $requestProvider = new RequestProvider();
         $requestProvider->set($requestA);
 
-        $requestCookies = new RequestCookies($requestProvider);
+        $requestACookies = $requestProvider->get()->getCookieParams();
 
-        $this->assertSame('a', $requestCookies->get('test'));
-        $this->assertFalse($requestCookies->has('city'));
+        $this->assertSame('a', $requestACookies['test']);
+        $this->assertArrayNotHasKey('city', $requestACookies);
 
         $requestProvider->set($requestB);
+        $requestBCookies = $requestProvider->get()->getCookieParams();
 
-        $this->assertSame('b', $requestCookies->get('test'));
-        $this->assertTrue($requestCookies->has('city'));
+        $this->assertSame('b', $requestBCookies['test']);
+        $this->assertArrayHasKey('city', $requestBCookies);
     }
 
-    private function createRequestCookies(array $cookies = []): RequestCookies
+    private function createRequestProvider(array $cookies = []): RequestProvider
     {
         $request = $this->createRequest($cookies);
 
         $requestProvider = new RequestProvider();
         $requestProvider->set($request);
 
-        return new RequestCookies($requestProvider);
+        return $requestProvider;
     }
 
     private function createRequest(array $cookies = []): ServerRequestInterface
