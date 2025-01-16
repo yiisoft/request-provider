@@ -2,7 +2,6 @@
 
 ## 1.2.1 under development
 
-- no changes in this release.
 - Chg #19: Remove `RequestCookies` (@FrankiFixx)
 
 ## 1.2.0 January 08, 2025
