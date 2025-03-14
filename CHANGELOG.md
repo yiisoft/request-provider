@@ -2,7 +2,7 @@
 
 ## 1.2.1 under development
 
-- no changes in this release.
+- Chg #22: Change PHP constraint in `composer.json` to `8.1 - 8.4` (@vjik)
 
 ## 1.2.0 January 08, 2025
 
