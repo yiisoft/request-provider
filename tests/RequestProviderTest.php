@@ -29,4 +29,12 @@ final class RequestProviderTest extends TestCase
         $this->expectExceptionMessage('Request is not set.');
         $requestProvider->get();
     }
+
+    public function testConstructorWithRequest(): void
+    {
+        $request = $this->createMock(ServerRequestInterface::class);
+        $requestProvider = new RequestProvider($request);
+
+        $this->assertSame($request, $requestProvider->get());
+    }
 }
