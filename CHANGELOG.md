@@ -2,6 +2,7 @@
 
 ## 1.2.1 under development
 
+- Chg #19: Remove `RequestCookies` (@FrankiFixx)
 - Chg #22, #30: Change PHP constraint in `composer.json` to `8.1 - 8.5` (@vjik)
 - New #28: Add optional `$request` parameter to `RequestProvider` constructor (@vjik)
 
