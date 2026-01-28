@@ -12,9 +12,12 @@ use Psr\Http\Message\ServerRequestInterface;
 final class RequestProvider implements RequestProviderInterface
 {
     /**
-     * @var ServerRequestInterface|null The request.
+     * @param ServerRequestInterface|null $request The request.
      */
-    private ?ServerRequestInterface $request = null;
+    public function __construct(
+        private ?ServerRequestInterface $request = null
+    ) {
+    }
 
     public function set(ServerRequestInterface $request): void
     {
