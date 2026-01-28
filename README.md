@@ -19,7 +19,7 @@ The package provides the current PSR-7 request as a dependency.
 
 ## Requirements
 
-- PHP 8.1 or higher.
+- PHP 8.1 - 8.5.
 
 ## Installation
 
