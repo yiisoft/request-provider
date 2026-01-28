@@ -21,6 +21,14 @@ final class RequestProviderTest extends TestCase
         $this->assertSame($request, $requestProvider->get());
     }
 
+    public function testConstructor(): void
+    {
+        $request = $this->createMock(ServerRequestInterface::class);
+        $requestProvider = new RequestProvider($request);
+
+        $this->assertSame($request, $requestProvider->get());
+    }
+
     public function testRequestNotSet(): void
     {
         $requestProvider = new RequestProvider();

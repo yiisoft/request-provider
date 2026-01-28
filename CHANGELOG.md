@@ -3,6 +3,7 @@
 ## 1.2.1 under development
 
 - Chg #22: Change PHP constraint in `composer.json` to `8.1 - 8.4` (@vjik)
+- New #28: Add optional `$request` parameter to `RequestProvider` constructor (@vjik)
 
 ## 1.2.0 January 08, 2025
 
