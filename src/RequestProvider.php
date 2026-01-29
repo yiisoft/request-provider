@@ -15,9 +15,8 @@ final class RequestProvider implements RequestProviderInterface
      * @param ServerRequestInterface|null $request The request.
      */
     public function __construct(
-        private ?ServerRequestInterface $request = null
-    ) {
-    }
+        private ?ServerRequestInterface $request = null,
+    ) {}
 
     public function set(ServerRequestInterface $request): void
     {

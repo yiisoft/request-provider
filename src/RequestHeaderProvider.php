@@ -16,9 +16,8 @@ final class RequestHeaderProvider
      * @param RequestProviderInterface $requestProvider The request provider to access the request.
      */
     public function __construct(
-        private readonly RequestProviderInterface $requestProvider
-    ) {
-    }
+        private readonly RequestProviderInterface $requestProvider,
+    ) {}
 
     /**
      * Retrieves the value of a specific header as a string. If the header does not exist, returns default value.
@@ -26,7 +25,7 @@ final class RequestHeaderProvider
      * @param string $name The name of the header to retrieve.
      * @return string|null The header value as a string, or default value if the header is not present.
      */
-    public function getLine(string $name, string|null $default = null): string|null
+    public function getLine(string $name, ?string $default = null): ?string
     {
         $request = $this->requestProvider->get();
         return $request->hasHeader($name) ? $request->getHeaderLine($name) : $default;
