@@ -1,9 +1,9 @@
 # Yii Request Provider Change Log
 
-## 1.2.1 under development
+## 1.3.0 January 29, 2026
 
-- Chg #22, #30: Change PHP constraint in `composer.json` to `8.1 - 8.5` (@vjik)
 - New #28: Add optional `$request` parameter to `RequestProvider` constructor (@vjik)
+- Chg #22, #30: Change PHP constraint in `composer.json` to `8.1 - 8.5` (@vjik)
 
 ## 1.2.0 January 08, 2025
 
