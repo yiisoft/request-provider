@@ -1,5 +1,9 @@
 # Yii Request Provider Change Log
 
+## 1.3.1 under development
+
+- no changes in this release.
+
 ## 1.3.0 January 29, 2026
 
 - New #28: Add optional `$request` parameter to `RequestProvider` constructor (@vjik)
