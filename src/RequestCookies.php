@@ -13,8 +13,7 @@ final class RequestCookies
 {
     public function __construct(
         private readonly RequestProviderInterface $requestProvider,
-    ) {
-    }
+    ) {}
 
     public function get(string $name): ?string
     {

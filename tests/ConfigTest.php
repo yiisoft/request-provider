@@ -40,7 +40,7 @@ final class ConfigTest extends TestCase
     private function createContainer(): Container
     {
         return new Container(
-            ContainerConfig::create()->withDefinitions($this->getContainerDefinitions())
+            ContainerConfig::create()->withDefinitions($this->getContainerDefinitions()),
         );
     }
 

@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;
 use Yiisoft\RequestProvider\RequestCookieProvider;
