@@ -1,5 +1,9 @@
 # Yii Request Provider Change Log
 
+## 1.3.2 under development
+
+- no changes in this release.
+
 ## 1.3.1 November 24, 2026
 
 - Chg #42: Replace Psalm with PHPStan (@vjik)
