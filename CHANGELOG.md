@@ -3,6 +3,7 @@
 ## 1.3.1 under development
 
 - Chg #42: Replace Psalm with PHPStan (@vjik)
+- Enh #43: Add PHP 8.6 support (@vjik)
 
 ## 1.3.0 January 29, 2026
 
