@@ -2,7 +2,7 @@
 
 ## 1.3.1 under development
 
-- no changes in this release.
+- Chg #42: Replace Psalm with PHPStan (@vjik)
 
 ## 1.3.0 January 29, 2026
 
